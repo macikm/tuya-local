@@ -1,0 +1,234 @@
+name: PTZ camera
+products:
+  - id: lgcgaikdnjtupev3
+    manufacturer: Immax
+    model: Immax NEO LITE Smart Security camera VALL-II
+entities:
+  - entity: switch
+    translation_key: camera_record
+    dps:
+      - id: 150
+        type: boolean
+        optional: true
+        name: switch
+  - entity: switch
+    translation_key: motion_detection
+    category: config
+    dps:
+      - id: 134
+        type: boolean
+        optional: true
+        name: switch
+  - entity: switch
+    name: Sound detection
+    icon: "mdi:ear-hearing"
+    category: config
+    dps:
+      - id: 139
+        type: boolean
+        optional: true
+        name: switch
+  - entity: switch
+    name: Camera privacy
+    icon: "mdi:incognito"
+    category: config
+    dps:
+      - id: 105
+        type: boolean
+        optional: true
+        name: switch
+  - entity: switch
+    name: Motion recording
+    category: config
+    dps:
+      - id: 113
+        type: boolean
+        name: switch
+        optional: true
+  - entity: switch
+    translation_key: flip_image
+    category: config
+    dps:
+      - id: 103
+        optional: true
+        type: boolean
+        name: switch
+  - entity: switch
+    translation_key: watermark
+    category: config
+    dps:
+      - id: 104
+        type: boolean
+        name: switch
+  - entity: select
+    translation_key: motion_sensitivity
+    category: config
+    dps:
+      - id: 106
+        type: string
+        name: option
+        optional: true
+        mapping:
+          - dps_val: "0"
+            value: low
+          - dps_val: "1"
+            value: medium
+          - dps_val: "2"
+            value: high
+  - entity: select
+    translation_key: night_vision
+    category: config
+    dps:
+      - id: 108
+        type: string
+        optional: true
+        name: option
+        mapping:
+          - dps_val: "0"
+            value: auto
+          - dps_val: "1"
+            value: "off"
+          - dps_val: "2"
+            value: "on"
+  - entity: sensor
+    class: enum
+    translation_key: sd_status
+    category: diagnostic
+    dps:
+      - id: 110
+        type: integer
+        name: sensor
+        optional: true
+        mapping:
+          - dps_val: 1
+            value: normal
+          - dps_val: 2
+            value: fault
+          - dps_val: 3
+            value: full
+          - dps_val: 4
+            value: formatting
+          - dps_val: 5
+            value: missing
+          - dps_val: null
+            value: normal
+            hidden: true
+      - id: 109
+        type: string
+        name: memory_card_capacity
+        optional: true
+  - entity: select
+    translation_key: recording_mode
+    category: config
+    dps:
+      - id: 151
+        type: string
+        name: option
+        optional: true
+        mapping:
+          - dps_val: "1"
+            value: event
+          - dps_val: "2"
+            value: continuous
+  - entity: button
+    name: PTZ left
+    icon: "mdi:pan-left"
+    category: config
+    dps:
+      - id: 119
+        type: string
+        optional: true
+        name: button
+        mapping:
+          - dps_val: "6"
+            value: true
+          - value: false
+  - entity: button
+    name: PTZ right
+    icon: "mdi:pan-right"
+    category: config
+    dps:
+      - id: 119
+        type: string
+        optional: true
+        name: button
+        mapping:
+          - dps_val: "2"
+            value: true
+          - value: false
+  - entity: button
+    name: PTZ stop
+    icon: "mdi:pan"
+    category: config
+    dps:
+      - id: 116
+        type: boolean
+        optional: true
+        name: button
+  - entity: select
+    name: Sound sensitivity
+    icon: "mdi:ear-hearing"
+    category: config
+    dps:
+      - id: 140
+        type: string
+        optional: true
+        name: option
+        mapping:
+          - dps_val: "0"
+            value: Low
+          - dps_val: "1"
+            value: High
+  - entity: switch
+    name: Motion tracking
+    icon: "mdi:motion-sensor"
+    category: config
+    dps:
+      - id: 161
+        type: boolean
+        optional: true
+        name: switch
+        mapping:
+          - dps_val: false
+            icon: "mdi:motion-sensor-off"
+  - entity: switch
+    name: Limit motion detection area
+    icon: "mdi:picture-in-picture-top-right-outline"
+    category: config
+    dps:
+      - id: 168
+        type: boolean
+        optional: true
+        name: switch
+      - id: 169
+        type: string
+        optional: true
+        name: area
+  - entity: switch
+    name: Human detection
+    icon: "mdi:human"
+    category: config
+    dps:
+      - id: 170
+        type: boolean
+        name: switch
+        optional: true
+        mapping:
+          - dps_val: false
+            icon: "mdi:account-off"
+  - entity: sensor
+    name: ONVIF IP address
+    category: diagnostic
+    dps:
+      - id: 235
+        type: string
+        name: sensor
+        optional: true
+  - entity: binary_sensor
+    name: ONVIF enabled
+    category: diagnostic
+    dps:
+      - id: 236
+        type: boolean
+        name: sensor
+        optional: true
